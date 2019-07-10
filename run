@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+BUILDSCRIPT_URL='https://raw.githubusercontent.com/Micky1979/Build_Clover/master/Build_Clover.command'
+BUILDCLOVER=buildclover
+BUILDCONFIG_URL='https://raw.githubusercontent.com/mysqto/BuildClover/master/config'
+BUILDCONFIG=config
+
+curl -s -Lo "$BUILDCLOVER" "$BUILDSCRIPT_URL"
+[[ ! -e "$BUILDCONFIG" ]] && curl -s -Lo "$BUILDCONFIG" "$BUILDCONFIG_URL"
+bash $BUILDCLOVER --cfg $BUILDCONFIG
